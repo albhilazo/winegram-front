@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<main class="container ">
+  <div class="product-sheet row">
+  <div class="col s12">
+
+    <section class="row section scrollspy">
+      <h3 class="product-name">{{ product.name }}</h3>
+      <h5 class="product-maker">{{ product.maker }} ({{ product.concrete_region }})</h5>
+    </section>
+
+    <section id="product-sheet" class="row section scrollspy">
+      <div class="col s12 m6">
+        <dl class="product-attributes card-panel">
+          <dt>Añada</dt>
+          <dd>{{ product.attributes.vintage.value }}</dd>
+          <dt>Tipo de vino</dt>
+          <dd>{{ product.attributes.wine_type.value }}</dd>
+          <dt>Volumen</dt>
+          <dd>{{ product.attributes.bottle_volume.value }} ml</dd>
+          <dt>Vol. de alcohol</dt>
+          <dd>{{ product.attributes.alcohol_volume.value }}%</dd>
+          <dt>Uvas</dt>
+          <dd>
+            <ul>
+            {% for grape_type in product.attributes.grapes %}
+              <li class="chip">{{ grape_type.value }}</li>
+            {% endfor %}
+            </ul>
+          </dd>
+        </dl>
+      </div>
+
+      <div class="col s12 m3">
+        <div class="uvinum-data card-panel center-align">
+          <img class="uvinum-logo" src="{{ asset('images/uvinum.png') }}">
+          <span class="uvinum-rank">{{ product.rank }}</span>
+          <a class="uvinum-buy waves-effect waves-light btn">Comprar<i class="material-icons right">shopping_cart</i></a>
+        </div>
+      </div>
+
+      <div class="col s12 m3">
+        <img class="product-image materialboxed" src="{{ product.image_full }}" data-caption="{{ product.long_name }}">
+      </div>
+    </section>
+
+    <section id="product-description" class="row section scrollspy">
+      <p class="product-description">{{ product.producer_description }}</p>
+    </section>
+
+  </div>
+  </div>
+</main>
+{% endblock %}

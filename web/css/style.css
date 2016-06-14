@@ -1,3 +1,55 @@
+/* Product sheet */
+
+.product-sheet .product-maker {
+    opacity: 0.8;
+}
+
+.product-sheet .card-panel {
+    padding: 25px;
+}
+
+.product-sheet .product-attributes,
+.product-sheet .uvinum-data,
+.product-sheet .product-image {
+    height: 285px;
+}
+
+.product-sheet .product-attributes dt,
+.product-sheet .product-attributes dd {
+    margin: 10px 0;
+}
+
+.product-sheet .product-attributes dt {
+    font-weight: bold;
+    float: left;
+    width: 30%;
+}
+
+.product-sheet .product-attributes dd {
+    float: left;
+    width: 70%;
+}
+
+.product-sheet .product-attributes ul {
+    margin: 0;
+}
+
+.product-sheet .uvinum-data .uvinum-logo {
+    width: 125px;
+}
+
+.product-sheet .uvinum-data .uvinum-rank {
+    display: block;
+    font-size: 2em;
+    margin-top: 10px;
+}
+
+.product-sheet .uvinum-data .uvinum-buy {
+    padding: 0 1.5rem;
+    margin-top: 10px;
+}
+
+
 /* Sticky footer */
 
 body {
