@@ -49,6 +49,22 @@
     margin-top: 10px;
 }
 
+.product-sheet .product-table-of-contents {
+    margin: 40px 0 40px 40px;
+}
+
+.product-sheet .product-table-of-contents li {
+    padding: 5px 0;
+}
+
+.product-sheet .product-table-of-contents a {
+    color: #00695c;
+}
+
+.product-sheet .product-table-of-contents a.active {
+    font-weight: bold;
+}
+
 
 /* Sticky footer */
 
