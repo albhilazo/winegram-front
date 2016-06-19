@@ -7,25 +7,25 @@
 
     <section class="row section scrollspy">
       <h3 class="product-name">{{ product.name }}</h3>
-      <h5 class="product-maker">{{ product.maker }} ({{ product.concrete_region }})</h5>
+      <h5 class="product-maker">{{ product.maker }}</h5>
     </section>
 
     <section id="product-sheet" class="row section scrollspy">
       <div class="col s12 m6">
         <dl class="product-attributes card-panel">
           <dt>Añada</dt>
-          <dd>{{ product.attributes.vintage.value }}</dd>
+          <dd>{{ product.vintage }}</dd>
           <dt>Tipo de vino</dt>
-          <dd>{{ product.attributes.wine_type.value }}</dd>
+          <dd>{{ product.wine_type }}</dd>
           <dt>Volumen</dt>
-          <dd>{{ product.attributes.bottle_volume.value }} ml</dd>
+          <dd>{{ product.bottle_volume }} ml</dd>
           <dt>Vol. de alcohol</dt>
-          <dd>{{ product.attributes.alcohol_volume.value }}%</dd>
+          <dd>{{ product.alcohol_volume }}%</dd>
           <dt>Uvas</dt>
           <dd>
             <ul>
-            {% for grape_type in product.attributes.grapes %}
-              <li class="chip">{{ grape_type.value }}</li>
+            {% for grape_type in product.grapes %}
+              <li class="chip">{{ grape_type }}</li>
             {% endfor %}
             </ul>
           </dd>
