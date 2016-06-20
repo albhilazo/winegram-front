@@ -6,6 +6,20 @@
 }
 
 
+/* Search results */
+
+.card .card-image img {
+    width: initial;
+    height: 250px;
+    margin: 0 auto;
+}
+
+.card-content p {
+    height: 3em;
+    overflow: hidden;
+}
+
+
 /* Product sheet */
 
 .product-sheet .product-maker {
