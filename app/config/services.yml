@@ -19,3 +19,8 @@ services:
     class: AppBundle\Services\RetrieveProduct
     arguments:
       - "@elastic.client"
+
+  search_product:
+    class: AppBundle\Services\SearchProduct
+    arguments:
+      - "@elastic.client"
