@@ -6,6 +6,15 @@
 }
 
 
+/* Search bar */
+
+.input-field input[type=search] {
+    display: inline-block;
+    height: 2em;
+    border-radius: 2px;
+}
+
+
 /* Search results */
 
 .card .card-image img {
