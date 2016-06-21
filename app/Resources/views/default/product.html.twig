@@ -7,25 +7,25 @@
 
     <section class="row section scrollspy">
       <h3 class="product-name">{{ product.name }}</h3>
-      <h5 class="product-maker">{{ product.maker }}</h5>
+      <h5 class="product-maker">{{ product.maker | default('') }}</h5>
     </section>
 
     <section id="product-sheet" class="row section scrollspy">
       <div class="col s12 m6">
         <dl class="product-attributes card-panel">
           <dt>Añada</dt>
-          <dd>{{ product.vintage }}</dd>
+          <dd>{{ product.vintage | default('') }}</dd>
           <dt>Tipo de vino</dt>
-          <dd>{{ product.wine_type }}</dd>
+          <dd>{{ product.wine_type | default('') }}</dd>
           <dt>Volumen</dt>
-          <dd>{{ product.bottle_volume }} ml</dd>
+          <dd>{{ product.bottle_volume | default('') }} ml</dd>
           <dt>Vol. de alcohol</dt>
-          <dd>{{ product.alcohol_volume }}%</dd>
+          <dd>{{ product.alcohol_volume | default('') }}%</dd>
           <dt>Uvas</dt>
           <dd>
             <ul>
             {% for grape_type in product.grapes %}
-              <li class="chip">{{ grape_type }}</li>
+              <li class="chip">{{ grape_type | default('') }}</li>
             {% endfor %}
             </ul>
           </dd>
@@ -35,18 +35,18 @@
       <div class="col s12 m3">
         <div class="uvinum-data card-panel center-align">
           <img class="uvinum-logo" src="{{ asset('images/uvinum.png') }}">
-          <span class="uvinum-rank">{{ product.rank }}</span>
+          <span class="uvinum-rank">{{ product.rank | default('') }}</span>
           <a class="uvinum-buy waves-effect waves-light btn">Comprar<i class="material-icons right">shopping_cart</i></a>
         </div>
       </div>
 
       <div class="col s12 m3">
-        <img class="product-image materialboxed" src="{{ product.image_full }}" data-caption="{{ product.long_name }}">
+        <img class="product-image materialboxed" src="{{ product.image_full | default('') }}" data-caption="{{ product.long_name | default('') }}">
       </div>
     </section>
 
     <section id="product-description" class="row section scrollspy">
-      <p class="product-description">{{ product.producer_description }}</p>
+      <p class="product-description">{{ product.producer_description | default('') }}</p>
     </section>
 
     <div class="divider"></div>
