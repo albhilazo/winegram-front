@@ -24,3 +24,8 @@ services:
     class: AppBundle\Services\SearchProduct
     arguments:
       - "@elastic.client"
+
+  uvinum_api_client:
+      class: AppBundle\Services\UvinumApiClient
+      arguments:
+          - "%uvinum_api_key%"
