@@ -23,11 +23,13 @@
           <dd>{{ product.alcohol_volume | default('') }}%</dd>
           <dt>Uvas</dt>
           <dd>
-            <ul>
-            {% for grape_type in product.grapes %}
-              <li class="chip">{{ grape_type | default('') }}</li>
-            {% endfor %}
-            </ul>
+            {% if product.grapes is defined %}
+                <ul>
+                {% for grape_type in product.grapes %}
+                  <li class="chip">{{ grape_type | default('') }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
           </dd>
         </dl>
       </div>
