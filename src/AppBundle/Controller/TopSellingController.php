@@ -15,7 +15,7 @@ final class TopSellingController extends Controller
     public function indexAction(Request $request)
     {
         $api_client = $this->get('uvinum_api_client');
-        $response        = $api_client->getTopSellingWines('tinto', 20);
+        $response        = $api_client->getTopSellingWines('tinto');
         $json_response = $response->json();
         
         // replace this example code with whatever you need
