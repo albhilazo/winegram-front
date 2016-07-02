@@ -38,6 +38,17 @@ class GetLastComments
                             'order' => 'desc'
                         ]
                     ]
+                ],
+                'query' => [
+                    'constant_score' => [
+                        'filter' => [
+                            'bool' => [
+                                'must' => [
+                                    [ 'term' => ['type' => 'instagram_post'] ],
+                                ]
+                            ]
+                        ]
+                    ]
                 ]
             ]
         ];
