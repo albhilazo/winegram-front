@@ -6,6 +6,17 @@
 }
 
 
+/* Home */
+
+.last-instagram {
+    display: inline-block;
+}
+
+.last-instagram img {
+    width: 180px;
+}
+
+
 /* Search bar */
 
 .input-field input[type=search] {

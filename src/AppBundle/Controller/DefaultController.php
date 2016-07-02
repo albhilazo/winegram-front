@@ -18,4 +18,18 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
         ]);
     }
+
+
+    /**
+     * @Route("/last-comments", name="last_comments")
+     */
+    public function lastCommentsAction(Request $request)
+    {
+        $lastCommentsData = $this->get('last_comments')->getLast(10);
+
+        return $this->render('blocks/last-instagram.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
+            'comments' => $lastCommentsData,
+        ]);
+    }
 }
