@@ -53,7 +53,8 @@
 
     <div class="divider"></div>
     <section id="product-twitter" class="row section scrollspy">
-      {% include "blocks/twitter-grid.html.twig" %}
+      <h4>Twitter</h4>
+      <div id="product-tweets-list" class="row"></div>
     </section>
 
     <div class="divider"></div>
@@ -81,5 +82,7 @@
   <script type="text/javascript">
     $('.product-table-of-contents').pushpin({ top: $('.product-table-of-contents').offset().top });
     $('.scrollspy').scrollSpy();
+
+    $( "#product-tweets-list" ).load( "{{ url('product_tweets', {'productId': product_id }) }}" );
   </script>
 {% endblock %}

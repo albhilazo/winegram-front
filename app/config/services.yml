@@ -20,6 +20,11 @@ services:
     arguments:
       - "@elastic.client"
 
+  retrieve_product.tweets:
+    class: AppBundle\Services\RetrieveProductTweets
+    arguments:
+      - "@elastic.client"
+
   search_product:
     class: AppBundle\Services\SearchProduct
     arguments:
