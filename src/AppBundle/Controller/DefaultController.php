@@ -23,9 +23,23 @@ class DefaultController extends Controller
     /**
      * @Route("/last-instagram", name="last_instagram")
      */
-    public function lastCommentsAction(Request $request)
+    public function lastInstagramAction(Request $request)
     {
         $lastCommentsData = $this->get('last_comments')->getLast(8, 'instagram_post');
+
+        return $this->render('blocks/social_comments.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
+            'comments' => $lastCommentsData,
+        ]);
+    }
+
+
+    /**
+     * @Route("/last-twitter", name="last_twitter")
+     */
+    public function lastTwitterAction(Request $request)
+    {
+        $lastCommentsData = $this->get('last_comments')->getLast(8, 'tweet');
 
         return $this->render('blocks/social_comments.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
