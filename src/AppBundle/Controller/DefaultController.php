@@ -25,9 +25,9 @@ class DefaultController extends Controller
      */
     public function lastCommentsAction(Request $request)
     {
-        $lastCommentsData = $this->get('last_comments')->getLast(6);
+        $lastCommentsData = $this->get('last_comments')->getLast(8);
 
-        return $this->render('blocks/last-instagram.html.twig', [
+        return $this->render('blocks/social_comments.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
             'comments' => $lastCommentsData,
         ]);

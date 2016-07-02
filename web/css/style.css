@@ -16,12 +16,8 @@
 
 /* Home */
 
-.last-instagram .instagram-image {
-    display: inline-block;
-}
-
-.last-instagram img {
-    width: 180px;
+.social-image-card .social-image-card-text {
+    height: 1.75em;
 }
 
 
