@@ -31,6 +31,8 @@ class RetrieveProductTweets
             'index' => self::INDEX_NAME,
             'type'  => self::TYPE_NAME,
             'body'  => [
+                'from' => 0,
+                'size' => 6,
                 'query' => [
                     'constant_score' => [
                         'filter' => [
