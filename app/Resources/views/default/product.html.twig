@@ -38,7 +38,7 @@
         <div class="uvinum-data card-panel center-align">
           <img class="uvinum-logo" src="{{ asset('images/uvinum.png') }}">
           <span class="uvinum-rank">{{ product.rank | default('') }}</span>
-          <a class="uvinum-buy waves-effect waves-light btn">Comprar<i class="material-icons right">shopping_cart</i></a>
+          <a href="{{ product.url | default("#") }}" class="uvinum-buy waves-effect waves-light btn">Comprar<i class="material-icons right">shopping_cart</i></a>
         </div>
       </div>
 
