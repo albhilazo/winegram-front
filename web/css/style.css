@@ -16,6 +16,11 @@
 
 /* Home */
 
+.social-card,
+.social-image-card {
+    height: 360px;
+}
+
 .social-image-card .social-image-card-text {
     height: 1.75em;
 }

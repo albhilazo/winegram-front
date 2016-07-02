@@ -2,6 +2,7 @@
 
   {% for social_item in comments %}
     {% if social_item._source.media %}
+
       <div class="col s12 m3">
         <div class="card social-image-card">
           <div class="card-image waves-effect waves-block waves-light">
@@ -23,6 +24,20 @@
           </div>
         </div>
       </div>
+
+    {% else %}
+
+      <div class="col s12 m3">
+        <div class="card social-card">
+          <div class="card-content">
+            <span class="card-title grey-text text-darken-4">
+              {{ social_item._source.username | default('') }}
+            </span>
+            <p class="social-card-text"> {{ social_item._source.original_text | default('') }}</p>
+          </div>
+        </div>
+      </div>
+
     {% endif %}
   {% endfor %}
 
