@@ -1,8 +1,16 @@
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .card .card-image .card-title {
     line-height: 1em;
     background-color: #00695c;
-    opacity: 0.9;
+    opacity: 0.95;
     padding: 15px;
+    width: 100%;
+    text-align: center;
 }
 
 
@@ -30,6 +38,7 @@
 
 .card .card-image img {
     width: initial;
+    max-width: 100%;
     height: 250px;
     margin: 0 auto;
 }
@@ -111,6 +120,20 @@
 }
 
 .product-sheet .product-table-of-contents a.active {
+    font-weight: bold;
+}
+
+
+/* Top selling */
+
+.product-card .product-card-name,
+.product-card .product-card-maker {
+    height: 1.75em;
+    width: 100%;
+}
+
+.product-card .product-card-name {
+    opacity: 0.9;
     font-weight: bold;
 }
 

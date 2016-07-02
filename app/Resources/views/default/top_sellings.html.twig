@@ -8,14 +8,16 @@
             <div class="row">
                 {% for product in products %}
                     <div class="col s12 m3">
-                        <div class="card">
+                        <div class="card product-card">
                             <div class="card-image">
                                 <a href="{{ url('product', {'productId': product.id_product}) }}">
                                     <img src="{{ product.image_full }}">
+                                    <span class="card-title">{{ product.category }}</span>
                                 </a>
                             </div>
                             <div class="card-content">
-                                <p>{{ product.long_name }}
+                                <p class="product-card-name ellipsis">{{ product.long_name }}</p>
+                                <p class="product-card-maker ellipsis">{{ product.maker }}</p>
                             </div>
                         </div>
                     </div>
