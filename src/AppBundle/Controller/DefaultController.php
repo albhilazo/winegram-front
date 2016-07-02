@@ -21,11 +21,11 @@ class DefaultController extends Controller
 
 
     /**
-     * @Route("/last-comments", name="last_comments")
+     * @Route("/last-instagram", name="last_instagram")
      */
     public function lastCommentsAction(Request $request)
     {
-        $lastCommentsData = $this->get('last_comments')->getLast(8);
+        $lastCommentsData = $this->get('last_comments')->getLast(8, 'instagram_post');
 
         return $this->render('blocks/social_comments.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),

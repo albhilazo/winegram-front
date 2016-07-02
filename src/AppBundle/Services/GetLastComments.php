@@ -24,7 +24,7 @@ class GetLastComments
 
 
 
-    public function getLast($size)
+    public function getLast($size, $type)
     {
         $params = [
             'index' => self::INDEX_NAME,
@@ -44,7 +44,7 @@ class GetLastComments
                         'filter' => [
                             'bool' => [
                                 'must' => [
-                                    [ 'term' => ['type' => 'instagram_post'] ],
+                                    [ 'term' => ['type' => $type] ],
                                 ]
                             ]
                         ]
