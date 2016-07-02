@@ -15,5 +15,6 @@ parameters:
     mailer_user:       ~
     mailer_password:   ~
     secret:            ThisTokenIsNotSoSecretChangeIt
-    elastic.hosts:     aspodkaopsd
+    elastic.hosts:
+        - aklsdaosdaspmd
     uvinum_api_key:    AUvinumTokenApi
