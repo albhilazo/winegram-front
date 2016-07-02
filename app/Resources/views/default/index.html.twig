@@ -8,6 +8,11 @@
         <div id="last-instagram"></div>
     </section>
 
+    <section class="row section">
+        <h3>Qué está pasando en Twitter?</h3>
+        <div id="last-twitter"></div>
+    </section>
+
   </main>
 {% endblock %}
 
@@ -15,5 +20,6 @@
 {% block javascripts %}
   <script type="text/javascript">
     $( "#last-instagram" ).load( "{{ url('last_instagram') }}" );
+    $( "#last-twitter" ).load( "{{ url('last_twitter') }}" );
   </script>
 {% endblock %}
