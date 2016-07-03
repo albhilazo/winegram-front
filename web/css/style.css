@@ -193,11 +193,13 @@ footer.page-footer {
 }
 .nube div.etiquetas span{
     color: #00695c;
-    float: left;
     margin: 0 3px 0 3px;
     height: 25pt;
     white-space: nowrap;
     margin: 5px 15px;
+}
+.nube div.etiquetas span:hover {
+    text-decoration: underline;
 }
 .nube div.etiquetas span.etiquetatam0{
     opacity: 0.45;
