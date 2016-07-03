@@ -17,7 +17,8 @@
             <div class="col s12 m10 offset-m1">
               <div class="row">
                 <a href="{{ url('home') }}" class="brand-logo">Winegram</a>
-                <div class="col s12 m4 offset-m4">
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                <div class="col s12 m4 offset-m4 hide-on-med-and-down">
                   <form action="{{ url('search') }}">
                     <div class="input-field">
                       <input id="search" type="search" name="query" required>
@@ -26,7 +27,20 @@
                     </div>
                   </form>
                 </div>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <ul class="right hide-on-med-and-down">
+                  <li><a href="{{ url('home') }}">Home</a></li>
+                  <li><a href="{{ url('top-selling') }}">Top ventas</a></li>
+                </ul>
+                <ul id="nav-mobile" class="side-nav">
+                  <div class="mobile-search-wrapper teal darken-3">
+                    <form action="{{ url('search') }}">
+                      <div class="input-field">
+                        <input id="search" type="search" name="query" required>
+                        <label for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons">close</i>
+                      </div>
+                    </form>
+                  </div>
                   <li><a href="{{ url('home') }}">Home</a></li>
                   <li><a href="{{ url('top-selling') }}">Top ventas</a></li>
                 </ul>
@@ -45,6 +59,11 @@
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="{{ asset('js/materialize.min.js') }}"></script>
+        <script type="text/javascript">
+            $( document ).ready(function(){
+                $(".button-collapse").sideNav();
+            });
+        </script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>
