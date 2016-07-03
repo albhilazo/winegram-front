@@ -5,7 +5,7 @@ namespace AppBundle\Services;
 use Elasticsearch\Client;
 
 
-class RetrieveProductTweets
+class RetrieveProductComments
 {
 
     const INDEX_NAME = 'winegram';
@@ -24,7 +24,7 @@ class RetrieveProductTweets
 
 
 
-    public function get($productId, $size)
+    public function get($productId, $type, $size)
     {
 
         $params = [
@@ -38,7 +38,7 @@ class RetrieveProductTweets
                         'filter' => [
                             'bool' => [
                                 'must' => [
-                                    [ 'term' => ['type' => 'tweet'] ],
+                                    [ 'term' => ['type' => $type] ],
                                     [ 'term' => ['search_type' => 'uvinum'] ],
                                     [ 'term' => ['search_content' => $productId] ],
                                 ]

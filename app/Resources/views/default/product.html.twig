@@ -56,13 +56,13 @@
                 <div class="divider"></div>
                 <section id="product-twitter" class="row section scrollspy">
                     <h4>Twitter</h4>
-
                     <div id="product-tweets-list" class="row"></div>
                 </section>
 
                 <div class="divider"></div>
                 <section id="product-instagram" class="row section scrollspy">
-                    {% include "blocks/instagram-grid.html.twig" %}
+                    <h4>Instagram</h4>
+                    <div id="product-instagrams-list" class="row"></div>
                 </section>
 
                 <div class="divider"></div>
@@ -95,6 +95,7 @@
         $('.scrollspy').scrollSpy();
 
         $("#product-tweets-list").load("{{ url('product_tweets', {'productId': product_id }) }}");
+        $("#product-instagrams-list").load("{{ url('product_instagrams', {'productId': product_id }) }}");
 
         var ctx = document.getElementById("myChart").getContext("2d");
         var jsonData = $.ajax({

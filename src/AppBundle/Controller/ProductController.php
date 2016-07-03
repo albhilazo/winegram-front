@@ -30,7 +30,7 @@ class ProductController extends Controller
      */
     public function tweetsAction($productId, Request $request)
     {
-        $tweetsData = $this->get('retrieve_product.tweets')->get($productId, 8);
+        $tweetsData = $this->get('retrieve_product.comments')->get($productId, 'tweet', 8);
 
         // replace this example code with whatever you need
         return $this->render('blocks/social_comments.html.twig', [
@@ -38,6 +38,22 @@ class ProductController extends Controller
             'comments' => $tweetsData,
         ]);
     }
+
+
+    /**
+     * @Route("/product/{productId}/instagrams", name="product_instagrams")
+     */
+    public function instagramsAction($productId, Request $request)
+    {
+        $instagramsData = $this->get('retrieve_product.comments')->get($productId, 'instagram_post', 8);
+
+        // replace this example code with whatever you need
+        return $this->render('blocks/social_comments.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
+            'comments' => $instagramsData,
+        ]);
+    }
+
 
     /**
      * @Route("/product/{productId}/sentiment", name="product_sentiment")

@@ -25,8 +25,8 @@ services:
     arguments:
       - "@elastic.client"
 
-  retrieve_product.tweets:
-    class: AppBundle\Services\RetrieveProductTweets
+  retrieve_product.comments:
+    class: AppBundle\Services\RetrieveProductComments
     arguments:
       - "@elastic.client"
 
