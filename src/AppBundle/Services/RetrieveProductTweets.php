@@ -24,7 +24,7 @@ class RetrieveProductTweets
 
 
 
-    public function get($productId)
+    public function get($productId, $size)
     {
 
         $params = [
@@ -32,7 +32,7 @@ class RetrieveProductTweets
             'type'  => self::TYPE_NAME,
             'body'  => [
                 'from' => 0,
-                'size' => 6,
+                'size' => $size,
                 'query' => [
                     'constant_score' => [
                         'filter' => [

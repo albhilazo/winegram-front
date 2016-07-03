@@ -30,12 +30,12 @@ class ProductController extends Controller
      */
     public function tweetsAction($productId, Request $request)
     {
-        $tweetsData = $this->get('retrieve_product.tweets')->get($productId);
+        $tweetsData = $this->get('retrieve_product.tweets')->get($productId, 8);
 
         // replace this example code with whatever you need
-        return $this->render('blocks/twitter-grid.html.twig', [
+        return $this->render('blocks/social_comments.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
-            'tweets' => $tweetsData,
+            'comments' => $tweetsData,
         ]);
     }
 
