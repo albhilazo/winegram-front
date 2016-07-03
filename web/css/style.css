@@ -95,6 +95,10 @@
     overflow: auto;
 }
 
+.product-sheet .product-image {
+    height: 285px;
+}
+
 .product-sheet .product-attributes dt,
 .product-sheet .product-attributes dd {
     margin: 10px 0;
