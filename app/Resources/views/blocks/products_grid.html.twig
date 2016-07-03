@@ -1,7 +1,7 @@
 {% if products is not empty %}
 
     {% for product in products %}
-        <div class="col s12 m6 l3">
+        <div class="col s12 l3">
             <div class="card product-card">
                 <div class="card-image">
                     <a href="{{ url('product', {'productId': product._id}) }}">

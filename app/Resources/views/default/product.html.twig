@@ -3,7 +3,7 @@
 {% block body %}
     <main class="container ">
         <div class="product-sheet row">
-            <div class="col s12 m10">
+            <div class="col s12 l10">
 
                 <section class="row section scrollspy">
                     <h3 class="product-name">{{ product.name }}</h3>
@@ -11,7 +11,7 @@
                 </section>
 
                 <section id="product-sheet" class="row section scrollspy">
-                    <div class="col s12 m6">
+                    <div class="col s12 l6">
                         <dl class="product-attributes card-panel">
                             <dt>Añada</dt>
                             <dd>{{ product.vintage | default('') }}</dd>
@@ -34,7 +34,7 @@
                         </dl>
                     </div>
 
-                    <div class="col s12 m3">
+                    <div class="col s12 l3">
                         <div class="uvinum-data card-panel center-align">
                             <img class="uvinum-logo" src="{{ asset('images/uvinum.png') }}">
                             <span class="uvinum-rank">{{ product.rank | default('') }}</span>
@@ -43,7 +43,7 @@
                         </div>
                     </div>
 
-                    <div class="col s12 m3">
+                    <div class="col s12 l3">
                         <img class="product-image materialboxed" src="{{ product.image_full | default('') }}"
                              data-caption="{{ product.long_name | default('') }}">
                     </div>
@@ -79,7 +79,7 @@
 
             </div>
 
-            <div class="col hide-on-small-only m2">
+            <div class="col hide-on-med-and-down l2">
                 <ul class="product-table-of-contents">
                     <li><a href="#product-sheet">Ficha producto</a></li>
                     <li><a href="#product-description">Descripción</a></li>
