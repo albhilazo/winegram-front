@@ -95,7 +95,7 @@ class DefaultController extends Controller
             $valor_relativo = round((($apariciones - $valor_min) / $diferencia) * 10);
             $etiquetas[$nombreetiqueta] = $valor_relativo;
         }
-        
+
         return $etiquetas;
     }
 }

@@ -1,88 +1,139 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<main class="container ">
-  <div class="product-sheet row">
-  <div class="col s12 m10">
+    <main class="container ">
+        <div class="product-sheet row">
+            <div class="col s12 m10">
 
-    <section class="row section scrollspy">
-      <h3 class="product-name">{{ product.name }}</h3>
-      <h5 class="product-maker">{{ product.maker | default('') }}</h5>
-    </section>
+                <section class="row section scrollspy">
+                    <h3 class="product-name">{{ product.name }}</h3>
+                    <h5 class="product-maker">{{ product.maker | default('') }}</h5>
+                </section>
 
-    <section id="product-sheet" class="row section scrollspy">
-      <div class="col s12 m6">
-        <dl class="product-attributes card-panel">
-          <dt>Añada</dt>
-          <dd>{{ product.vintage | default('') }}</dd>
-          <dt>Tipo de vino</dt>
-          <dd>{{ product.wine_type | default('') }}</dd>
-          <dt>Volumen</dt>
-          <dd>{{ product.bottle_volume | default('') }} ml</dd>
-          <dt>Vol. de alcohol</dt>
-          <dd>{{ product.alcohol_volume | default('') }}%</dd>
-          <dt>Uvas</dt>
-          <dd>
-            {% if product.grapes is defined %}
-                <ul>
-                {% for grape_type in product.grapes %}
-                  <li class="chip">{{ grape_type | default('') }}</li>
-                {% endfor %}
+                <section id="product-sheet" class="row section scrollspy">
+                    <div class="col s12 m6">
+                        <dl class="product-attributes card-panel">
+                            <dt>Añada</dt>
+                            <dd>{{ product.vintage | default('') }}</dd>
+                            <dt>Tipo de vino</dt>
+                            <dd>{{ product.wine_type | default('') }}</dd>
+                            <dt>Volumen</dt>
+                            <dd>{{ product.bottle_volume | default('') }} ml</dd>
+                            <dt>Vol. de alcohol</dt>
+                            <dd>{{ product.alcohol_volume | default('') }}%</dd>
+                            <dt>Uvas</dt>
+                            <dd>
+                                {% if product.grapes is defined %}
+                                    <ul>
+                                        {% for grape_type in product.grapes %}
+                                            <li class="chip">{{ grape_type | default('') }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </dd>
+                        </dl>
+                    </div>
+
+                    <div class="col s12 m3">
+                        <div class="uvinum-data card-panel center-align">
+                            <img class="uvinum-logo" src="{{ asset('images/uvinum.png') }}">
+                            <span class="uvinum-rank">{{ product.rank | default('') }}</span>
+                            <a href="{{ product.url | default("#") }}" class="uvinum-buy waves-effect waves-light btn">Comprar<i
+                                        class="material-icons right">shopping_cart</i></a>
+                        </div>
+                    </div>
+
+                    <div class="col s12 m3">
+                        <img class="product-image materialboxed" src="{{ product.image_full | default('') }}"
+                             data-caption="{{ product.long_name | default('') }}">
+                    </div>
+                </section>
+
+                <section id="product-description" class="row section scrollspy">
+                    <p class="product-description">{{ product.producer_description | default('') }}</p>
+                </section>
+
+                <div class="divider"></div>
+                <section id="product-twitter" class="row section scrollspy">
+                    <h4>Twitter</h4>
+
+                    <div id="product-tweets-list" class="row"></div>
+                </section>
+
+                <div class="divider"></div>
+                <section id="product-instagram" class="row section scrollspy">
+                    {% include "blocks/instagram-grid.html.twig" %}
+                </section>
+
+                <div class="divider"></div>
+                <section id="product-sentiment" class="row section scrollspy">
+                    <h4>Sentiment</h4>
+                    <canvas id="myChart" width="740" height="200"></canvas>
+                </section>
+
+            </div>
+
+            <div class="col hide-on-small m2">
+                <ul class="product-table-of-contents">
+                    <li><a href="#product-sheet">Ficha producto</a></li>
+                    <li><a href="#product-description">Descripción</a></li>
+                    <li><a href="#product-twitter">Twitter</a></li>
+                    <li><a href="#product-instagram">Instagram</a></li>
+                    <li><a href="#product-sentiment">Sentiment</a></li>
                 </ul>
-            {% endif %}
-          </dd>
-        </dl>
-      </div>
+            </div>
 
-      <div class="col s12 m3">
-        <div class="uvinum-data card-panel center-align">
-          <img class="uvinum-logo" src="{{ asset('images/uvinum.png') }}">
-          <span class="uvinum-rank">{{ product.rank | default('') }}</span>
-          <a href="{{ product.url | default("#") }}" class="uvinum-buy waves-effect waves-light btn">Comprar<i class="material-icons right">shopping_cart</i></a>
         </div>
-      </div>
-
-      <div class="col s12 m3">
-        <img class="product-image materialboxed" src="{{ product.image_full | default('') }}" data-caption="{{ product.long_name | default('') }}">
-      </div>
-    </section>
-
-    <section id="product-description" class="row section scrollspy">
-      <p class="product-description">{{ product.producer_description | default('') }}</p>
-    </section>
-
-    <div class="divider"></div>
-    <section id="product-twitter" class="row section scrollspy">
-      <h4>Twitter</h4>
-      <div id="product-tweets-list" class="row"></div>
-    </section>
-
-    <div class="divider"></div>
-    <section id="product-instagram" class="row section scrollspy">
-      {% include "blocks/instagram-grid.html.twig" %}
-    </section>
-
-  </div>
-
-  <div class="col hide-on-small m2">
-    <ul class="product-table-of-contents">
-      <li><a href="#product-sheet">Ficha producto</a></li>
-      <li><a href="#product-description">Descripción</a></li>
-      <li><a href="#product-twitter">Twitter</a></li>
-      <li><a href="#product-instagram">Instagram</a></li>
-    </ul>
-  </div>
-
-  </div>
-</main>
+    </main>
 {% endblock %}
 
 
 {% block javascripts %}
-  <script type="text/javascript">
-    $('.product-table-of-contents').pushpin({ top: $('.product-table-of-contents').offset().top });
-    $('.scrollspy').scrollSpy();
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.min.js"></script>
+    <script type="text/javascript">
+        $('.product-table-of-contents').pushpin({top: $('.product-table-of-contents').offset().top});
+        $('.scrollspy').scrollSpy();
 
-    $( "#product-tweets-list" ).load( "{{ url('product_tweets', {'productId': product_id }) }}" );
-  </script>
+        $("#product-tweets-list").load("{{ url('product_tweets', {'productId': product_id }) }}");
+
+        var ctx = document.getElementById("myChart").getContext("2d");
+        var jsonData = $.ajax({
+            url: '{{ url('product_sentiment', {'productId': product_id }) }}',
+            dataType: 'json'
+        }).done(function (results) {
+
+            // Split timestamp and data into separate arrays
+            var labels = [], data = [];
+            results["packets"].forEach(function (packet) {
+                labels.push(packet.label);
+                data.push(parseFloat(packet.value));
+            });
+            var tempData = {
+                labels: labels,
+                datasets: [{
+                    fillColor: "rgba(151,187,205,0.2)",
+                    strokeColor: "rgba(151,187,205,1)",
+                    pointColor: "rgba(151,187,205,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(151,187,205,1)",
+                    data: data
+                }]
+            };
+            var myBarChart = new Chart(ctx, {
+                type: 'bar',
+                data: tempData,
+                options: {
+                    scales: {
+                        xAxes: [{
+                            stacked: true
+                        }],
+                        yAxes: [{
+                            stacked: true
+                        }]
+                    }
+                }
+            });
+        });
+    </script>
 {% endblock %}
