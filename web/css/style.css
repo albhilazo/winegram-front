@@ -111,6 +111,8 @@
 .product-sheet .product-attributes dd {
     float: left;
     width: 70%;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .product-sheet .product-attributes ul {

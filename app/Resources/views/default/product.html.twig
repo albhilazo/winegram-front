@@ -13,15 +13,15 @@
                 <section id="product-sheet" class="row section scrollspy">
                     <div class="col s12 l6">
                         <dl class="product-attributes card-panel">
-                            <dt>Añada</dt>
+                            <dt class="ellipsis">Añada</dt>
                             <dd>{{ product.vintage | default('') }}</dd>
-                            <dt>Tipo de vino</dt>
+                            <dt class="ellipsis">Tipo de vino</dt>
                             <dd>{{ product.wine_type | default('') }}</dd>
-                            <dt>Volumen</dt>
+                            <dt class="ellipsis">Volumen</dt>
                             <dd>{{ product.bottle_volume | default('') }} ml</dd>
-                            <dt>Vol. de alcohol</dt>
+                            <dt class="ellipsis">Vol. de alcohol</dt>
                             <dd>{{ product.alcohol_volume | default('') }}%</dd>
-                            <dt>Uvas</dt>
+                            <dt class="ellipsis">Uvas</dt>
                             <dd>
                                 {% if product.grapes is defined %}
                                     <ul>
