@@ -20,6 +20,12 @@ services:
     arguments:
       - "@elastic.client"
 
+  most_commented_products:
+    class: AppBundle\Services\GetMostCommentedProducts
+    arguments:
+      - "@elastic.client"
+      - "@retrieve_product"
+
   retrieve_product:
     class: AppBundle\Services\RetrieveProduct
     arguments:

@@ -52,28 +52,7 @@ class DefaultController extends Controller
      */
     public function cloudProductsAction(Request $request)
     {
-        $etiquetas = array(
-            "HTML" => 10,
-            "PHP" => 15,
-            "ASP" => 6,
-            "Promoción de webs" => 5,
-            "Programación" => 8,
-            "Javascript" => 12,
-            "Ajax" => 5,
-            ".NET" => 3,
-            "FAQ" => 2,
-            "SEO" => 9,
-            "CSS" => 12,
-            "XHTML" => 8,
-            "Desarrollo Web" => 12,
-            "Diseño" => 8,
-            "Ganar dinero" => 6,
-            "Freelance" => 2,
-            "Cookies" => 3,
-            "Software" => 10,
-            "DHTML" => 7,
-            "Cross-Browser" => 1
-        );
+        $etiquetas = $this->get('most_commented_products')->getHash();
 
         $etiquetas = $this->nube_etiquetas($etiquetas);
 
