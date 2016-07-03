@@ -27,7 +27,7 @@ class GetMostCommentedProducts
 
 
 
-    public function getHash()
+    public function getHash($size)
     {
         $params = [
             'index' => self::INDEX_NAME,
@@ -49,7 +49,7 @@ class GetMostCommentedProducts
                     'top-terms-aggregation' => [  
                         'terms' => [  
                             'field' => 'search_content',
-                            'size' => 10
+                            'size' => $size
                         ]
                     ]
                 ]

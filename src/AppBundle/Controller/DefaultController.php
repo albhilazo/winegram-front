@@ -52,15 +52,17 @@ class DefaultController extends Controller
      */
     public function cloudProductsAction(Request $request)
     {
-        $tags = $this->get('most_commented_products')->getHash();
+        $tags = $this->get('most_commented_products')->getHash(15);
 
         $tags = $this->makeScoresRelative($tags);
+        $tags = $this->shuffleTags($tags);
 
         return $this->render('blocks/cloud-names.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir') . '/..'),
             'names' => $tags,
         ]);
     }
+
 
     private function makeScoresRelative($tags)
     {
@@ -73,15 +75,26 @@ class DefaultController extends Controller
         $minScore    = min($scores);
         $deltaScores = $maxScore - $minScore;
 
-        $tagsIds = array_keys($tags);
-        shuffle($tagsIds);
-
-        foreach ($tagsIds as $id) {
-            $itemScore = $tags[$id]['score'];
+        foreach ($tags as $id => $productData) {
+            $itemScore = $productData['score'];
             $relativeScore = round((($itemScore - $minScore) / $deltaScores) * 10);
             $tags[$id]['score'] = $relativeScore;
         }
 
         return $tags;
+    }
+
+
+    private function shuffleTags($tags)
+    {
+        $tagsIds = array_keys($tags);
+        shuffle($tagsIds);
+
+        $shuffledTags = [];
+        foreach($tagsIds as $id) {
+            $shuffledTags[$id] = $tags[$id];
+        }
+
+        return $shuffledTags;
     }
 }
