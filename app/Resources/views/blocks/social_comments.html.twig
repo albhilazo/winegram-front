@@ -20,6 +20,28 @@
               <i class="material-icons right">close</i>
             </span>
             <p>{{ social_item._source.original_text | default('') }}</p>
+            <div class="card-action">
+              <div class="clearfix bshadow0 pbs">
+              {% if social_item._source.text_sentiment == 'positive' %}
+              <span class="icon-happy icons-good-size green-text"></span>
+              {% endif %}
+              {% if social_item._source.text_sentiment == 'neutral' %}
+                <span class="icon-neutral icons-good-size orange-text"></span>
+              {% endif %}
+              {% if social_item._source.text_sentiment == 'negative' %}
+                <span class="icon-sad icons-good-size red-text"></span>
+              {% endif %}
+              {% if social_item._source.text_tweet_sentiment == 'positive' %}
+                <span class="icon-happy icons-good-size green-text"></span>
+              {% endif %}
+              {% if social_item._source.text_tweet_sentiment == 'neutral' %}
+                <span class="icon-neutral icons-good-size orange-text"></span>
+              {% endif %}
+              {% if social_item._source.text_tweet_sentiment == 'negative' %}
+                <span class="icon-sad icons-good-size red-text"></span>
+              {% endif %}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -33,6 +55,28 @@
               {{ social_item._source.username | default('') }}
             </span>
             <p class="social-card-text"> {{ social_item._source.original_text | default('') }}</p>
+          </div>
+          <div class="card-action">
+            <div class="clearfix bshadow0 pbs">
+              {% if social_item._source.text_sentiment == 'positive' %}
+                <span class="icon-happy icons-good-size green-text"></span>
+              {% endif %}
+              {% if social_item._source.text_sentiment == 'neutral' %}
+                <span class="icon-neutral icons-good-size orange-text"></span>
+              {% endif %}
+              {% if social_item._source.text_sentiment == 'negative' %}
+                <span class="icon-sad icons-good-size red-text"></span>
+              {% endif %}
+              {% if social_item._source.text_tweet_sentiment == 'positive' %}
+                <span class="icon-happy icons-good-size green-text"></span>
+              {% endif %}
+              {% if social_item._source.text_tweet_sentiment == 'neutral' %}
+                <span class="icon-neutral icons-good-size orange-text"></span>
+              {% endif %}
+              {% if social_item._source.text_tweet_sentiment == 'negative' %}
+                <span class="icon-sad icons-good-size red-text"></span>
+              {% endif %}
+            </div>
           </div>
         </div>
       </div>
