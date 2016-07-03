@@ -46,6 +46,10 @@
     padding: 0 15px;
 }
 
+.mobile-search-wrapper .input-field input {
+    margin-top: 10px;
+}
+
 
 /* Search results */
 
