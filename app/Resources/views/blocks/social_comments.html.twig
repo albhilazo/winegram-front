@@ -9,9 +9,8 @@
             <img class="activator" src="{{ social_item._source.media | default('#') }}">
           </div>
           <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">
+            <span class="card-title activator grey-text text-darken-4 ellipsis">
               {{ social_item._source.username | default('') }}
-              <i class="material-icons right">more_vert</i>
             </span>
             <p class="social-image-card-text ellipsis">{{ social_item._source.original_text | default('') }}</p>
           </div>
