@@ -50,7 +50,13 @@
                 </section>
 
                 <section id="product-description" class="row section scrollspy">
+                    <h5>Descripción</h5>
                     <p class="product-description">{{ product.producer_description | default('') }}</p>
+                </section>
+
+                <section id="product-maker" class="row section scrollspy">
+                    <h5>Bodega: {{ product.maker | default('') }}</h5>
+                    <p class="product-maker-description">{{ product.maker_description | default('') }}</p>
                 </section>
 
                 <div class="divider"></div>
@@ -77,6 +83,7 @@
                 <ul class="product-table-of-contents">
                     <li><a href="#product-sheet">Ficha producto</a></li>
                     <li><a href="#product-description">Descripción</a></li>
+                    <li><a href="#product-maker">Bodega</a></li>
                     <li><a href="#product-twitter">Twitter</a></li>
                     <li><a href="#product-instagram">Instagram</a></li>
                     <li><a href="#product-sentiment">Sentiment</a></li>
