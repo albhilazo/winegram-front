@@ -3,14 +3,15 @@
 {% block body %}
   <main class="container">
 
-      <section class="row section">
-          <h3>Productos</h3>
-          <div id="cloud-products">
-              {% include "blocks/spinner.html.twig" %}
-          </div>
-      </section>
+    <div class="divider"></div>
+    <section class="row section">
+        <h3>Productos</h3>
+        <div id="cloud-products">
+            {% include "blocks/spinner.html.twig" %}
+        </div>
+    </section>
 
-      <div class="divider"></div>
+    <div class="divider"></div>
     <section class="row section">
         <h3>Qué está pasando en Instagram?</h3>
         <div id="last-instagram">
@@ -25,9 +26,6 @@
             {% include "blocks/spinner.html.twig" %}
         </div>
     </section>
-
-
-
 
   </main>
 {% endblock %}
