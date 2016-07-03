@@ -12,7 +12,9 @@
     width: 100%;
     text-align: center;
 }
-
+.card .card-content .card-title{
+    word-break: break-all;
+}
 
 /* Home */
 
