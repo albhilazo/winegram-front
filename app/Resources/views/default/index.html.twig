@@ -13,6 +13,11 @@
         <div id="last-twitter"></div>
     </section>
 
+      <section class="row section">
+          <h3>Productos</h3>
+          <div id="cloud-products"></div>
+      </section>
+
   </main>
 {% endblock %}
 
@@ -21,5 +26,6 @@
   <script type="text/javascript">
     $( "#last-instagram" ).load( "{{ url('last_instagram') }}" );
     $( "#last-twitter" ).load( "{{ url('last_twitter') }}" );
+    $( "#cloud-products" ).load( "{{ url('cloud-products') }}" );
   </script>
 {% endblock %}

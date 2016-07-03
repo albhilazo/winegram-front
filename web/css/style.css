@@ -154,3 +154,56 @@ main {
 footer.page-footer {
     padding-top: 5px;
 }
+
+/* CLOUD WORDS */
+.nube{
+    color: #666666;
+    text-align: center;
+}
+.nube div.etiquetas{
+    font-family: verdana,arial,helvetica;
+    font-size: 13pt;
+    padding: 5px;
+}
+.nube div.etiquetas span{
+    float: left;
+    margin: 0 3px 0 3px;
+    height: 25pt;
+    white-space: nowrap;
+}
+.nube div.etiquetas span.etiquetatam1{
+    font-size: 110%;
+    color: #efefef;
+}
+.nube div.etiquetas span.etiquetatam2{
+    font-size: 120%;
+}
+.nube div.etiquetas span.etiquetatam3{
+    font-size: 130%;
+    color: #ccc3c3;
+}
+div.etiquetas span.etiquetatam4{
+    font-size: 140%;
+}
+.nube div.etiquetas span.etiquetatam5{
+    font-size: 150%;
+    color: rgba(0, 105, 92, 0.64);
+}
+.nube div.etiquetas span.etiquetatam6{
+    font-size: 160%;
+    color: #c5d8d6;
+}
+.nube div.etiquetas span.etiquetatam7{
+    font-size: 170%;
+}
+.nube div.etiquetas span.etiquetatam8{
+    font-size: 180%;
+    color: #aaa;
+}
+.nube div.etiquetas span.etiquetatam9{
+    font-size: 190%;
+}
+.nube div.etiquetas span.etiquetatam10{
+    font-size: 200%;
+    color: #00695c;
+}
