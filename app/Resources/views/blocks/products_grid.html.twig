@@ -1,0 +1,20 @@
+{% if products is not empty %}
+
+    {% for product in products %}
+        <div class="col s12 m3">
+            <div class="card product-card">
+                <div class="card-image">
+                    <a href="{{ url('product', {'productId': product._id}) }}">
+                        <img src="{{ product._source.image_full }}">
+                        <span class="card-title">{{ product._source.category }}</span>
+                    </a>
+                </div>
+                <div class="card-content">
+                    <p class="product-card-name ellipsis">{{ product._source.long_name }}</p>
+                    <p class="product-card-maker ellipsis">{{ product._source.maker }}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endif %}

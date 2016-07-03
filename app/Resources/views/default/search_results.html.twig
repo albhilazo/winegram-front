@@ -7,20 +7,8 @@
             <div class="section">
                 <h4>Vinos</h4>
                 <div class="row">
-                    {% for result_item in results %}
-                        <div class="col s12 m3">
-                            <div class="card">
-                                <div class="card-image">
-                                    <a href="{{ url('product', {'productId': result_item._id}) }}">
-                                        <img src="{{ result_item._source.image_full }}">
-                                    </a>
-                                </div>
-                                <div class="card-content">
-                                    <p>{{ result_item._source.long_name }}
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
+                    {% set products = results %}
+                    {% include "blocks/products_grid.html.twig" with products %}
                 </div>
             </div>
         {% else %}
