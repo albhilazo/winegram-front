@@ -16,7 +16,6 @@ class ProductController extends Controller
     {
         $productData = $this->get('retrieve_product')->get($productId);
 
-        // replace this example code with whatever you need
         return $this->render('default/product.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
             'product' => $productData,
@@ -32,7 +31,6 @@ class ProductController extends Controller
     {
         $tweetsData = $this->get('retrieve_product.comments')->get($productId, 'tweet', 8);
 
-        // replace this example code with whatever you need
         return $this->render('blocks/social_comments.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
             'comments' => $tweetsData,
@@ -47,7 +45,6 @@ class ProductController extends Controller
     {
         $instagramsData = $this->get('retrieve_product.comments')->get($productId, 'instagram_post', 8);
 
-        // replace this example code with whatever you need
         return $this->render('blocks/social_comments.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
             'comments' => $instagramsData,

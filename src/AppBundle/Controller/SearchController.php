@@ -16,7 +16,6 @@ class SearchController extends Controller
         $queryText = $request->query->get('query');
         $searchResults = $this->get('search_product')->search($queryText);
 
-        // replace this example code with whatever you need
         return $this->render('default/search_results.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
             'query_text' => $queryText,

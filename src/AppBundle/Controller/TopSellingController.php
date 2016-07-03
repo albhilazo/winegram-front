@@ -18,7 +18,6 @@ final class TopSellingController extends Controller
         $response        = $api_client->getTopSellingWines('tinto');
         $json_response = $response->json();
         
-        // replace this example code with whatever you need
         return $this->render('default/top_sellings.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
             'products' => $json_response['products'],
