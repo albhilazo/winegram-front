@@ -1,9 +1,0 @@
-{% if comments is not empty %}
-
-  {% for social_item in comments %}
-    <div class="instagram-image">
-      <img class="materialboxed" src="{{ social_item._source.media | default("#") }}">
-    </div>
-  {% endfor %}
-
-{% endif %}
