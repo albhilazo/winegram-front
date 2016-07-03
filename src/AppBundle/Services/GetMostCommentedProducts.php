@@ -62,7 +62,7 @@ class GetMostCommentedProducts
         $mostCommented = [];
         foreach ($resultItems as $item) {
             $productName = $this->retrieveProduct->get($item['key'])['name'];
-            $mostCommented[$productName] = $item['doc_count'];
+            $mostCommented[$item['key']] = [ 'name' => $productName, 'score' => $item['doc_count'] ];
         }
 
         return $mostCommented;

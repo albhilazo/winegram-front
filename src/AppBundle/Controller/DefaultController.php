@@ -52,29 +52,36 @@ class DefaultController extends Controller
      */
     public function cloudProductsAction(Request $request)
     {
-        $etiquetas = $this->get('most_commented_products')->getHash();
+        $tags = $this->get('most_commented_products')->getHash();
 
-        $etiquetas = $this->nube_etiquetas($etiquetas);
+        $tags = $this->makeScoresRelative($tags);
 
         return $this->render('blocks/cloud-names.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir') . '/..'),
-            'names' => $etiquetas,
+            'names' => $tags,
         ]);
     }
 
-    private function nube_etiquetas($etiquetas)
+    private function makeScoresRelative($tags)
     {
-        $valor_max = max($etiquetas);
-        $valor_min = min($etiquetas);
-        $diferencia = $valor_max - $valor_min;
-
-        ksort($etiquetas);
-
-        foreach ($etiquetas as $nombreetiqueta => $apariciones) {
-            $valor_relativo = round((($apariciones - $valor_min) / $diferencia) * 10);
-            $etiquetas[$nombreetiqueta] = $valor_relativo;
+        $scores = [];
+        foreach ($tags as $item) {
+            $scores[] = $item['score'];
         }
 
-        return $etiquetas;
+        $maxScore    = max($scores);
+        $minScore    = min($scores);
+        $deltaScores = $maxScore - $minScore;
+
+        $tagsIds = array_keys($tags);
+        shuffle($tagsIds);
+
+        foreach ($tagsIds as $id) {
+            $itemScore = $tags[$id]['score'];
+            $relativeScore = round((($itemScore - $minScore) / $deltaScores) * 10);
+            $tags[$id]['score'] = $relativeScore;
+        }
+
+        return $tags;
     }
 }

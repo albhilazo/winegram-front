@@ -1,8 +1,10 @@
 
 <div class="nube">
     <div class="etiquetas">
-        {% for key,value in names %}
-        <span class='etiquetatam{{ value }}'>{{ key }}</span>
+        {% for product_id,product_data in names %}
+        <a href="{{ url('product', {'productId': product_id}) }}">
+            <span class='etiquetatam{{ product_data.score }}'>{{ product_data.name }}</span>
+        </a>
         {% endfor %}
         <div style='clear:both'></div>
     </div>
