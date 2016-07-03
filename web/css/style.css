@@ -13,7 +13,9 @@
     text-align: center;
 }
 .card .card-content .card-title{
-    word-break: break-all;
+    line-height: 30px;
+    display: block;
+    margin: 8px 0;
 }
 
 /* Home */
@@ -91,12 +93,6 @@
 
 .product-sheet .product-attributes,
 .product-sheet .uvinum-data,
-.product-sheet .product-image {
-    /*height: 285px;*/
-    height: auto;
-    overflow: auto;
-}
-
 .product-sheet .product-image {
     height: 285px;
 }
