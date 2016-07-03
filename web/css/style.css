@@ -42,6 +42,10 @@
     border: 1px solid gray;
 }
 
+.mobile-search-wrapper {
+    padding: 0 15px;
+}
+
 
 /* Search results */
 
