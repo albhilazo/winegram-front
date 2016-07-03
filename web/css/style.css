@@ -90,7 +90,9 @@
 .product-sheet .product-attributes,
 .product-sheet .uvinum-data,
 .product-sheet .product-image {
-    height: 285px;
+    /*height: 285px;*/
+    height: auto;
+    overflow: auto;
 }
 
 .product-sheet .product-attributes dt,
