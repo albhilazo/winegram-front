@@ -26,6 +26,11 @@ services:
       - "@elastic.client"
       - "@retrieve_product"
 
+  summary_product_sentiment:
+    class: AppBundle\Services\GetSummaryProductSentiment
+    arguments:
+      - "@elastic.client"
+
   retrieve_product:
     class: AppBundle\Services\RetrieveProduct
     arguments:

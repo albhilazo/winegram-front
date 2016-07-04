@@ -57,58 +57,29 @@ class ProductController extends Controller
      */
     public function sentimentAction($productId, Request $request)
     {
-        //3 graficas, o elegir una categoria (social, emotion o language)
-        $twitts = [];
-        //zero
-        $twitts[0]['social_tone']['Openness'] = 0.991000;
-        $twitts[0]['social_tone']['Emotional Range'] = 0.027000;
-        $twitts[0]['social_tone']['Extraversion'] = 0.607000;
-        $twitts[0]['social_tone']['Conscientiousness'] = 0.957000;
-        $twitts[0]['social_tone']['Agreeableness'] = 0.115000;
-        $twitts[0]['language_tone']['Confident'] = 0.607000;
-        $twitts[0]['language_tone']['Analytical'] = 0.957000;
-        $twitts[0]['language_tone']['Tentative'] = 0.115000;
-        $twitts[0]['emotion_tone']['Sadness'] = 0.991000;
-        $twitts[0]['emotion_tone']['Anger'] = 0.027000;
-        $twitts[0]['emotion_tone']['Fear'] = 0.607000;
-        $twitts[0]['emotion_tone']['Disgust'] = 0.957000;
-        $twitts[0]['emotion_tone']['Joy'] = 0.115000;
-        //uno
-        $twitts[1]['social_tone']['Openness'] = 0.991000;
-        $twitts[1]['social_tone']['Emotional Range'] = 0.027000;
-        $twitts[1]['social_tone']['Extraversion'] = 0.607000;
-        $twitts[1]['social_tone']['Conscientiousness'] = 0.957000;
-        $twitts[1]['social_tone']['Agreeableness'] = 0.115000;
+        $summarySentiment = $this->get('summary_product_sentiment')->getHash($productId);
 
-        $info = [];
-        $info["packets"] = [];
-        $openess = [];
-        $emotional = [];
-        $extra = [];
-        $conscien = [];
-        $agree = [];
+        $summarySentiment = $this->translateSentimentKeys($summarySentiment);
 
-        //Por cada twitt nos guardamos en un array su valor.
-        foreach ($twitts as $clave => $twitt_item){
-            $openess[$clave] = $twitt_item['social_tone']['Openness'];
-            $emotional[$clave] = $twitt_item['social_tone']['Emotional Range'];
-            $extra[$clave] = $twitt_item['social_tone']['Extraversion'];
-            $conscien[$clave] = $twitt_item['social_tone']['Conscientiousness'];
-            $agree[$clave] = $twitt_item['social_tone']['Agreeableness'];
-        }
+        return new JsonResponse($summarySentiment);
+    }
 
-        //hacemos la media
-        $info["packets"][0]['label'] = 'Openness';
-        $info["packets"][0]['value'] = array_sum($openess) / count($openess);
-        $info["packets"][1]['label'] = 'Emotional Range';
-        $info["packets"][1]['value'] = array_sum($emotional) / count($emotional);
-        $info["packets"][2]['label'] = 'Extraversion';
-        $info["packets"][2]['value'] = array_sum($extra) / count($extra);
-        $info["packets"][3]['label'] = 'Conscientiousness';
-        $info["packets"][3]['value'] = array_sum($conscien) / count($conscien);
-        $info["packets"][4]['label'] = 'Agreeableness';
-        $info["packets"][4]['value'] = array_sum($agree) / count($agree);
 
-        return new JsonResponse($info);
+    private function translateSentimentKeys($summarySentiment)
+    {
+        $dictionary = [
+            'positive' => 'Positivo',
+            'negative' => 'Negativo',
+            'neutral'  => 'Neutral'
+        ];
+
+        array_walk($summarySentiment, function(&$item, $key, $dictionary)
+        {
+            if ($dictionary[$item['key']]) {
+                $item['key'] = $dictionary[$item['key']];
+            }
+        }, $dictionary);
+
+        return $summarySentiment;
     }
 }

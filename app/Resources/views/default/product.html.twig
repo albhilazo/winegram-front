@@ -110,25 +110,20 @@
 
         var ctx = document.getElementById("myChart").getContext("2d");
         var jsonData = $.ajax({
-            url: '{{ url('product_sentiment', {'productId': product_id }) }}',
+            url: "{{ url('product_sentiment', {'productId': product_id }) }}",
             dataType: 'json'
         }).done(function (results) {
 
             // Split timestamp and data into separate arrays
             var labels = [], data = [];
-            results["packets"].forEach(function (packet) {
-                labels.push(packet.label);
-                data.push(parseFloat(packet.value));
+            results.forEach(function (sentiment) {
+                labels.push(sentiment.key);
+                data.push(parseFloat(sentiment.doc_count));
             });
             var tempData = {
                 labels: labels,
                 datasets: [{
-                    fillColor: "rgba(151,187,205,0.2)",
-                    strokeColor: "rgba(151,187,205,1)",
-                    pointColor: "rgba(151,187,205,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(151,187,205,1)",
+                    backgroundColor: '#26a69a',
                     data: data
                 }]
             };
@@ -136,6 +131,7 @@
                 type: 'bar',
                 data: tempData,
                 options: {
+                    legend: { display: false },
                     scales: {
                         xAxes: [{
                             stacked: true
