@@ -48,7 +48,17 @@
                              data-caption="{{ product.long_name | default('') }}">
                     </div>
                 </section>
-                
+
+                <section id="product-description" class="row section scrollspy">
+                    <h5>Descripción</h5>
+                    <p class="product-description">{{ product.producer_description | default('') | raw }}</p>
+                </section>
+
+                <section id="product-maker" class="row section scrollspy">
+                    <h5>Bodega: {{ product.maker | default('') }}</h5>
+                    <p class="product-maker-description">{{ product.maker_description | default('') | raw }}</p>
+                </section>
+
                 <div class="divider"></div>
                 <section id="product-sentiment" class="row section scrollspy">
                     <h4>Opiniones sobre el producto</h4>
